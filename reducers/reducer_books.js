@@ -3,9 +3,9 @@ export default function () {
 
   return [
 
-    {title: 'angularbooks'},
-    {title: 'nodebooks'},
-    {title: 'angularbooks'},
-    {title: 'angularbooks'}
+    {title: 'angularbooks', author: 'new auth'},
+    {title: 'nodebooks',author: 'new auth2'},
+    {title: 'angularbooks',author: 'new auth3'},
+    {title: 'angularbooks',author: 'new auth4'}
   ]
 }
