@@ -1,52 +1,36 @@
 
 import React from 'react'
+import {connect} from 'react-redux'
 
+class Header extends React.Component {
 
-export default class Header extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-this.add= this.add.bind(this)
-
-    this.state={
-      count:1
-    }
+  renderList() {
+    return this.props.bk.map((book) =>{
+      return (
+        <li 
+        key={book.title}
+        className="list-group-item">
+        {book.title}
+        </li>
+      )
+    })
   }
-
-add(){
- this.setState((preState)=>{
-   return {
-     count:preState.count+1
-   }
- })
-
-}
-subtract(){
-alert('sub')
-}
-reset(){
-alert('reset')
-}
 render(){
 
   return (
-<div>
-<h3> Count : {this.state.count}</h3>
-
-<button onClick={this.add}>add </button> <br/>
-
-<button onClick={this.subtract}>sub </button><br/>
-<button onClick={this.reset}>reset </button>
-
-    <h3> {this.props.hm} </h3>
-
-
-
-    </div>
-
+    <div>
+    <ul>
+{this.renderList()}
+ </ul>
+</div>
   )
 }
-
-
 }
+function mapStateToProps(state){
+
+  return {
+    bk: state.books
+  }
+}
+
+export default connect(mapStateToProps)(Header)
